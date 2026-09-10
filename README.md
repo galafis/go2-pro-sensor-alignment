@@ -3,9 +3,21 @@
 **Align paired planar observations and inspect held-out residuals.**  
 **Alinhe observações planas pareadas e inspecione resíduos fora do ajuste.**
 
-[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) · **Working software prototype / Protótipo funcional** · **v0.1.1** · **29 automated tests / testes automatizados** · **MIT**
+[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) · **Working software prototype / Protótipo funcional** · **v0.1.1** · **29 browser tests / testes do navegador** · **MIT**
 
 [English](#english) · [Português](#portugues) · [Live demo · Demonstração](https://galafis.github.io/go2-pro-sensor-alignment/) · [Five examples · Cinco exemplos](#examples)
+
+## Offline analysis · Análise offline
+
+**Python · JavaScript** — an installable Python implementation with a command line, strict input validation and reproducible examples. **Python companion v0.2.0**.
+
+**Python · JavaScript** — implementação Python instalável, com linha de comando, validação rigorosa e exemplos reproduzíveis. **Complemento Python v0.2.0**.
+
+Fit a weighted 2D rotation and translation from CSV landmark correspondences. Review fitted residuals, leave-one-out residuals and transformed evaluation points before comparing different observation coordinate frames.
+
+Ajuste rotação e translação 2D ponderadas a partir de correspondências de marcos em CSV. Revise resíduos do ajuste, resíduos por exclusão de um ponto e pontos de avaliação transformados antes de comparar sistemas de coordenadas de observações.
+
+[Install, examples and method / Instalação, exemplos e método](docs/PYTHON.md) · [Executed outputs / Saídas executadas](examples/python/README.md) · [Python tests / Testes Python](python/tests)
 
 ## Workflow · Fluxo de trabalho
 

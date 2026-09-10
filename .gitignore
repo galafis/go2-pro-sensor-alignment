@@ -3,3 +3,16 @@ coverage/
 *.local.json
 .DS_Store
 Thumbs.db
+
+# Offline analysis / Análise offline
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+review-output/

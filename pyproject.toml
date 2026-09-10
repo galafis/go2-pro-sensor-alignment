@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77,<83"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "go2-pro-sensor-alignment-offline"
+version = "0.2.0"
+description = "Offline analysis companion for go2-pro-sensor-alignment"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Gabriel Demetrios Lafis"}]
+dependencies = ["jsonschema>=4.23,<5"]
+
+[project.scripts]
+go2-alignment = "go2_alignment.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["python"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+go2_alignment = ["scenario.schema.json", "sql/*.sql"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -52,3 +52,9 @@ Português: Testes de resposta conhecida verificam expectativas numéricas indep
 Threshold decisions compare full-precision fitted and held-out residuals. Only displayed/exported metrics are rounded to six decimals. A finding can therefore accompany a displayed value equal to the threshold when the unrounded residual is slightly greater. Regression tests check both sides of this boundary.
 
 As decisões comparam resíduos do ajuste e de exclusão com precisão completa. Apenas métricas exibidas/exportadas são arredondadas a seis casas. Por isso, um aviso pode acompanhar um valor exibido igual ao limiar se o resíduo sem arredondamento for ligeiramente maior. Testes de regressão verificam os dois lados desse limite.
+
+## Python and language consistency · Python e consistência entre linguagens
+
+The independent offline implementation, CLI, CSV/JSON workflows and applicable SQLite transactions are covered by [Python tests](../python/tests) and the [executed example checker](../scripts/check-python-examples.py). Every canonical browser scenario is also calculated in Python and compared on shared domain outputs. See the [bilingual Python guide](PYTHON.md) for exact commands, data conventions and interpretation limits. Existing JavaScript tests remain in place.
+
+A implementação offline independente, a linha de comando, os fluxos CSV/JSON e as transações SQLite aplicáveis são cobertos pelos [testes Python](../python/tests) e pelo [verificador de exemplos](../scripts/check-python-examples.py). Cada cenário canônico do navegador também é calculado em Python e comparado nos resultados de domínio compartilhados. O [guia bilíngue](PYTHON.md) detalha comandos, convenções e limites. Os testes JavaScript existentes permanecem.

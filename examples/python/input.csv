@@ -1,0 +1,5 @@
+id,observed_x_m,observed_y_m,reference_x_m,reference_y_m,weight
+landmark-0,0,0,3,2,1
+landmark-1,2,0,3,4,1
+landmark-2,2,2,1,4,1
+landmark-3,0,2,1,2,1
