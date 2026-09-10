@@ -1,6 +1,6 @@
 # Validation evidence · Evidências de validação
 
-The suite currently contains **27 tests**. Five replay committed scenarios; the remaining tests check domain answers, edge cases and interface contracts. / A suíte contém **27 testes**. Cinco reproduzem cenários versionados; os demais verificam respostas do domínio, casos extremos e contratos das interfaces.
+The suite currently contains **29 tests**. Five replay committed scenarios; the remaining tests check domain answers, edge cases and interface contracts. / A suíte contém **29 testes**. Cinco reproduzem cenários versionados; os demais verificam respostas do domínio, casos extremos e contratos das interfaces.
 
 ```sh
 npm test
@@ -46,3 +46,9 @@ GitHub Checks executes the suite on Linux and Windows with Node.js 22 and 24. Co
 English: Known-answer checks verify independent numerical expectations. Invariant checks exercise multiple generated configurations, including unfavorable outcomes. The command-line test compares its exported report with the same validated domain calculation. Browser-render checks verify that both languages produce charts without non-finite coordinates; they do not replace interactive keyboard and layout review. No hardware, participant or emergency-use validation is claimed.
 
 Português: Testes de resposta conhecida verificam expectativas numéricas independentes. Verificações de invariantes exercitam diversas configurações geradas, incluindo resultados desfavoráveis. O teste da linha de comando compara a exportação com o cálculo de domínio validado. Verificações dos gráficos conferem os dois idiomas e coordenadas finitas; não substituem revisão interativa de teclado e layout. Não se afirma validação em hardware, com participantes ou para emergências.
+
+## Residual threshold precision · Precisão do limiar de resíduos
+
+Threshold decisions compare full-precision fitted and held-out residuals. Only displayed/exported metrics are rounded to six decimals. A finding can therefore accompany a displayed value equal to the threshold when the unrounded residual is slightly greater. Regression tests check both sides of this boundary.
+
+As decisões comparam resíduos do ajuste e de exclusão com precisão completa. Apenas métricas exibidas/exportadas são arredondadas a seis casas. Por isso, um aviso pode acompanhar um valor exibido igual ao limiar se o resíduo sem arredondamento for ligeiramente maior. Testes de regressão verificam os dois lados desse limite.

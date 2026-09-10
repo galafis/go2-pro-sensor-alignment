@@ -1,5 +1,10 @@
 # Changelog · Histórico
 
+## 0.1.1
+
+- Compare fitted and held-out residual thresholds before rounding; preserve report formatting. / Comparar limiares dos resíduos antes do arredondamento; preservar o formato do relatório.
+- Add two regression checks around rounding boundaries, bringing the suite to 29 tests. / Adicionar duas regressões em limites de arredondamento, totalizando 29 testes.
+
 ## 0.1.0
 
 - Implemented Go2 PRO Sensor Alignment domain behavior with five reproducible scenarios and 27 tests. / Implementado o domínio com cinco cenários reproduzíveis e 27 testes.

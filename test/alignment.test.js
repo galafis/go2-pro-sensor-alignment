@@ -120,3 +120,37 @@ test('large common coordinate offset does not destroy a well-spread fit', () => 
   const r = run(input);
   near(r.transform.angleRad, t.angleRad, 1e-7);
 });
+
+test('fitted residual decisions retain sub-micrometre threshold differences', () => {
+  const input = s({
+    maxResidualM: 0.1,
+    pairs: [
+      { id: 'a', observed: [-1, 0], reference: [-1.1000002, 0], weight: 1 },
+      { id: 'b', observed: [1, 0], reference: [1.1000002, 0], weight: 1 },
+    ],
+  });
+  const result = run(input);
+  assert.equal(result.metrics[2].value, 0.1);
+  assert.ok(result.findings.some((f) => f.code === 'FIT_RESIDUAL'));
+  input.maxResidualM = 0.1000003;
+  assert.ok(!run(input).findings.some((f) => f.code === 'FIT_RESIDUAL'));
+});
+
+test('held-out residual decisions use unrounded independent fit distances', () => {
+  const input = s({
+    maxResidualM: 0.2000001,
+    pairs: [
+      { id: 'a', observed: [-1, 0], reference: [-1.1000002, 0], weight: 1 },
+      { id: 'b', observed: [0, 0], reference: [0, 0], weight: 1 },
+      { id: 'c', observed: [1, 0], reference: [1.1000002, 0], weight: 1 },
+    ],
+  });
+  // Holding out an endpoint leaves a translation of 0.0500001 m:
+  // the endpoint's independent residual is 0.1500003 m.
+  input.maxResidualM = 0.1500001;
+  const result = run(input);
+  assert.equal(result.metrics[3].value, 0.15);
+  assert.ok(result.findings.some((f) => f.code === 'HELD_OUT_RESIDUAL'));
+  input.maxResidualM = 0.1500004;
+  assert.ok(!run(input).findings.some((f) => f.code === 'HELD_OUT_RESIDUAL'));
+});

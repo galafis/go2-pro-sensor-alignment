@@ -3,7 +3,7 @@
 **Align paired planar observations and inspect held-out residuals.**  
 **Alinhe observações planas pareadas e inspecione resíduos fora do ajuste.**
 
-[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) · **Working software prototype / Protótipo funcional** · **v0.1.0** · **27 automated tests / testes automatizados** · **MIT**
+[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) · **Working software prototype / Protótipo funcional** · **v0.1.1** · **29 automated tests / testes automatizados** · **MIT**
 
 [English](#english) · [Português](#portugues) · [Live demo · Demonstração](https://galafis.github.io/go2-pro-sensor-alignment/) · [Five examples · Cinco exemplos](#examples)
 

@@ -68,3 +68,9 @@ O mecanismo recebe JSON simples e retorna dados simples. Não depende do navegad
 | `app.js`              | Import, language, controls and export / Importação, idioma, controles e exportação  |
 | `ui.js`               | Escaping, numbers and downloads / Escape, números e downloads                       |
 | `scripts/analyze.mjs` | Command-line entry point / Entrada por linha de comando                             |
+
+## Residual threshold precision · Precisão do limiar de resíduos
+
+Threshold decisions compare full-precision fitted and held-out residuals. Only displayed/exported metrics are rounded to six decimals. A finding can therefore accompany a displayed value equal to the threshold when the unrounded residual is slightly greater. Regression tests check both sides of this boundary.
+
+As decisões comparam resíduos do ajuste e de exclusão com precisão completa. Apenas métricas exibidas/exportadas são arredondadas a seis casas. Por isso, um aviso pode acompanhar um valor exibido igual ao limiar se o resíduo sem arredondamento for ligeiramente maior. Testes de regressão verificam os dois lados desse limite.

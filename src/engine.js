@@ -79,10 +79,13 @@ export function fit(pairs) {
 export function run(s) {
   validate(s);
   const transform = fit(s.pairs),
-    findings = [];
+    findings = [],
+    rawResiduals = [],
+    rawHeldOutResiduals = [];
   const records = s.pairs.map((p, i) => {
     const aligned = transformPoint(p.observed, transform),
       residualM = Math.hypot(aligned[0] - p.reference[0], aligned[1] - p.reference[1]);
+    rawResiduals.push(residualM);
     let heldOutM = null,
       heldOutStatus = 'insufficient-pairs';
     if (s.pairs.length > 2) {
@@ -90,6 +93,7 @@ export function run(s) {
         const t = fit(s.pairs.filter((_, j) => i !== j)),
           out = transformPoint(p.observed, t);
         heldOutM = Math.hypot(out[0] - p.reference[0], out[1] - p.reference[1]);
+        rawHeldOutResiduals.push(heldOutM);
         heldOutStatus = 'computed';
       } catch (error) {
         if (error.code !== 'DEGENERATE') throw error;
@@ -114,9 +118,10 @@ export function run(s) {
         return v + p.weight * ((q[0] - p.reference[0]) ** 2 + (q[1] - p.reference[1]) ** 2);
       }, 0) / totalWeight,
     );
-  const maxResidual = Math.max(...records.map((p) => p.residualM)),
+  // Decide with full precision; rounding is only a report presentation policy.
+  const maxResidual = Math.max(...rawResiduals),
     heldOut = records.filter((p) => p.heldOutM !== null),
-    maxHeldOut = heldOut.length ? Math.max(...heldOut.map((p) => p.heldOutM)) : null;
+    maxHeldOut = heldOut.length ? Math.max(...rawHeldOutResiduals) : null;
   if (maxResidual > s.maxResidualM)
     findings.push(
       finding(
@@ -160,14 +165,14 @@ export function run(s) {
         'maxResidualM',
         'Maximum fitted residual',
         'Maior resíduo do ajuste',
-        maxResidual,
+        round(maxResidual),
         'm',
       ),
       metric(
         'maxHeldOutM',
         'Maximum held-out residual',
         'Maior resíduo fora do ajuste',
-        maxHeldOut,
+        maxHeldOut === null ? null : round(maxHeldOut),
         'm',
       ),
     ],

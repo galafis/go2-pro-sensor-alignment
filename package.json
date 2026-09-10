@@ -1,6 +1,6 @@
 {
   "name": "go2-pro-sensor-alignment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "EN: Align paired planar observations and inspect held-out residuals. PT: Alinhe observações planas pareadas e inspecione resíduos fora do ajuste.",
