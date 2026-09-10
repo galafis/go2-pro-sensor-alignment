@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": "0.1.0",
+  "projectId": "go2-pro-sensor-alignment",
+  "scenarioId": "mismatched-landmark",
+  "source": "synthetic",
+  "status": "review-notes",
+  "metrics": [
+    {
+      "key": "angleDeg",
+      "label": {
+        "en": "Fitted rotation",
+        "pt": "Rotação ajustada"
+      },
+      "value": 81.869898,
+      "unit": "°"
+    },
+    {
+      "key": "rmseM",
+      "label": {
+        "en": "Weighted fit RMSE",
+        "pt": "RMSE ponderado do ajuste"
+      },
+      "value": 0.389828,
+      "unit": "m"
+    },
+    {
+      "key": "maxResidualM",
+      "label": {
+        "en": "Maximum fitted residual",
+        "pt": "Maior resíduo do ajuste"
+      },
+      "value": 0.612776,
+      "unit": "m"
+    },
+    {
+      "key": "maxHeldOutM",
+      "label": {
+        "en": "Maximum held-out residual",
+        "pt": "Maior resíduo fora do ajuste"
+      },
+      "value": 1,
+      "unit": "m"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "warning",
+      "code": "FIT_RESIDUAL",
+      "message": {
+        "en": "At least one fitted residual exceeds the review threshold.",
+        "pt": "Ao menos um resíduo do ajuste excede o limiar de revisão."
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "HELD_OUT_RESIDUAL",
+      "message": {
+        "en": "A held-out residual exceeds the review threshold.",
+        "pt": "Um resíduo fora do ajuste excede o limiar de revisão."
+      }
+    }
+  ],
+  "records": [
+    {
+      "id": "landmark-0",
+      "observed": [0, 0],
+      "reference": [3, 2],
+      "aligned": [3.098528, 1.868629],
+      "weight": 1,
+      "residualM": 0.164214,
+      "heldOutM": 0.218951,
+      "heldOutStatus": "computed"
+    },
+    {
+      "id": "landmark-1",
+      "observed": [2, 0],
+      "reference": [3, 4],
+      "aligned": [3.381371, 3.848528],
+      "weight": 1,
+      "residualM": 0.41035,
+      "heldOutM": 0.771177,
+      "heldOutStatus": "computed"
+    },
+    {
+      "id": "landmark-2",
+      "observed": [2, 2],
+      "reference": [2, 4],
+      "aligned": [1.401472, 4.131371],
+      "weight": 1,
+      "residualM": 0.612776,
+      "heldOutM": 1,
+      "heldOutStatus": "computed"
+    },
+    {
+      "id": "landmark-3",
+      "observed": [0, 2],
+      "reference": [1, 2],
+      "aligned": [1.118629, 2.151472],
+      "weight": 1,
+      "residualM": 0.192397,
+      "heldOutM": 0.271712,
+      "heldOutStatus": "computed"
+    }
+  ],
+  "transform": {
+    "angleRad": 1.4288992721907328,
+    "translation": [3.098528137423857, 1.868629150101524]
+  },
+  "evaluationPoints": [
+    {
+      "observed": [1, 1],
+      "aligned": [2.25, 3]
+    },
+    {
+      "observed": [3, 0],
+      "aligned": [3.522792, 4.838478]
+    }
+  ],
+  "heldOutComputed": 4,
+  "model": "proper rigid 2D; unit scale; no reflection"
+}

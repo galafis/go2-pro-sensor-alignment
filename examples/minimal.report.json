@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": "0.1.0",
+  "projectId": "go2-pro-sensor-alignment",
+  "scenarioId": "two-correspondences",
+  "source": "synthetic",
+  "status": "review-notes",
+  "metrics": [
+    {
+      "key": "angleDeg",
+      "label": {
+        "en": "Fitted rotation",
+        "pt": "Rotação ajustada"
+      },
+      "value": 90,
+      "unit": "°"
+    },
+    {
+      "key": "rmseM",
+      "label": {
+        "en": "Weighted fit RMSE",
+        "pt": "RMSE ponderado do ajuste"
+      },
+      "value": 0,
+      "unit": "m"
+    },
+    {
+      "key": "maxResidualM",
+      "label": {
+        "en": "Maximum fitted residual",
+        "pt": "Maior resíduo do ajuste"
+      },
+      "value": 0,
+      "unit": "m"
+    },
+    {
+      "key": "maxHeldOutM",
+      "label": {
+        "en": "Maximum held-out residual",
+        "pt": "Maior resíduo fora do ajuste"
+      },
+      "value": null,
+      "unit": "m"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "info",
+      "code": "HELD_OUT_UNAVAILABLE",
+      "message": {
+        "en": "Some held-out fits are unavailable; inspect their status.",
+        "pt": "Alguns ajustes de exclusão estão indisponíveis; inspecione seus estados."
+      }
+    }
+  ],
+  "records": [
+    {
+      "id": "landmark-0",
+      "observed": [0, 0],
+      "reference": [3, 2],
+      "aligned": [3, 2],
+      "weight": 1,
+      "residualM": 0,
+      "heldOutM": null,
+      "heldOutStatus": "insufficient-pairs"
+    },
+    {
+      "id": "landmark-1",
+      "observed": [2, 0],
+      "reference": [3, 4],
+      "aligned": [3, 4],
+      "weight": 1,
+      "residualM": 0,
+      "heldOutM": null,
+      "heldOutStatus": "insufficient-pairs"
+    }
+  ],
+  "transform": {
+    "angleRad": 1.5707963267948966,
+    "translation": [3, 2]
+  },
+  "evaluationPoints": [
+    {
+      "observed": [1, 1],
+      "aligned": [2, 3]
+    },
+    {
+      "observed": [3, 0],
+      "aligned": [3, 5]
+    }
+  ],
+  "heldOutComputed": 0,
+  "model": "proper rigid 2D; unit scale; no reflection"
+}

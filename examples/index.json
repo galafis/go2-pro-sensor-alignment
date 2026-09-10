@@ -1,0 +1,47 @@
+[
+  {
+    "file": "nominal.json",
+    "report": "nominal.report.json",
+    "label": {
+      "en": "Known rotation and translation",
+      "pt": "Rotação e translação conhecidas"
+    },
+    "expectedStatus": "complete"
+  },
+  {
+    "file": "noise.json",
+    "report": "noise.report.json",
+    "label": {
+      "en": "Small observation perturbation",
+      "pt": "Pequena perturbação da observação"
+    },
+    "expectedStatus": "complete"
+  },
+  {
+    "file": "outlier.json",
+    "report": "outlier.report.json",
+    "label": {
+      "en": "Mismatched landmark",
+      "pt": "Correspondência incorreta"
+    },
+    "expectedStatus": "review-notes"
+  },
+  {
+    "file": "weighted.json",
+    "report": "weighted.report.json",
+    "label": {
+      "en": "Explicit lower weight",
+      "pt": "Peso menor explícito"
+    },
+    "expectedStatus": "review-notes"
+  },
+  {
+    "file": "minimal.json",
+    "report": "minimal.report.json",
+    "label": {
+      "en": "Minimum two correspondences",
+      "pt": "Mínimo de duas correspondências"
+    },
+    "expectedStatus": "review-notes"
+  }
+]

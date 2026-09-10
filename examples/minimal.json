@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "two-correspondences",
+  "source": "synthetic",
+  "maxResidualM": 0.1,
+  "pairs": [
+    {
+      "id": "landmark-0",
+      "observed": [0, 0],
+      "reference": [3, 2],
+      "weight": 1
+    },
+    {
+      "id": "landmark-1",
+      "observed": [2, 0],
+      "reference": [3, 4],
+      "weight": 1
+    }
+  ],
+  "evaluationPoints": [
+    [1, 1],
+    [3, 0]
+  ]
+}

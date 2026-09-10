@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="EN: Align paired planar observations and inspect held-out residuals. PT: Alinhe observações planas pareadas e inspecione resíduos fora do ajuste."
+    />
+    <title>Go2 PRO Sensor Alignment</title>
+    <link rel="icon" href="assets/icon.svg" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body style="--accent: #2367a1">
+    <a class="skip" href="#workbench" data-i18n="skip">Skip to workbench</a>
+    <header class="topbar">
+      <a class="brand" href="https://github.com/galafis"
+        ><span class="mark" aria-hidden="true">G/L</span> Gabriel Demetrios Lafis</a
+      >
+      <nav aria-label="Links">
+        <a href="https://github.com/galafis/go2-pro-sensor-alignment" data-i18n="source"
+          >Source & documentation</a
+        ><button id="language" type="button" aria-label="Switch to Portuguese">Português</button>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">
+            Unitree Go2 PRO <span data-i18n="companion">· independent research prototype</span>
+          </p>
+          <h1 id="title">Go2 PRO Sensor Alignment</h1>
+          <p class="lead" id="tagline">
+            Align paired planar observations and inspect held-out residuals.
+          </p>
+        </div>
+        <div class="hero-note">
+          <span class="pill" data-i18n="version">Working prototype · v0.1.0</span>
+          <p data-i18n="intro">
+            Load an example, change an assumption, and inspect the result. Everything runs in your
+            browser.
+          </p>
+          <a
+            href="https://github.com/galafis/go2-pro-sensor-alignment/blob/main/docs/RESEARCH_SCOPE.md"
+            data-i18n="scope"
+            >Research scope and next steps →</a
+          >
+        </div>
+      </section>
+      <section class="workspace" id="workbench" aria-label="Workbench">
+        <aside class="panel controls">
+          <div class="section-number">01 / <span data-i18n="scenario">SCENARIO</span></div>
+          <h2 data-i18n="configure">Choose your experiment</h2>
+          <label for="example" data-i18n="example">Example scenario</label
+          ><select id="example"></select>
+          <label for="setting" id="setting-label">Primary setting</label>
+          <div class="number-control">
+            <input id="setting" type="number" /><button
+              id="apply-setting"
+              type="button"
+              data-i18n="update"
+            >
+              Update
+            </button>
+          </div>
+          <p class="muted" data-i18n="assumption">
+            Example values are synthetic assumptions. Review them before using your own records.
+          </p>
+          <div class="control-divider"></div>
+          <label for="import-file" data-i18n="import">Import scenario JSON · up to 1 MB</label
+          ><input id="import-file" type="file" accept=".json,application/json" />
+          <div class="button-stack">
+            <button id="download-scenario" type="button" class="secondary" data-i18n="saveScenario">
+              Export scenario</button
+            ><button id="reset" type="button" class="secondary" data-i18n="reset">
+              Reset selected example
+            </button>
+          </div>
+          <details class="editor-block">
+            <summary data-i18n="editor">Edit all scenario fields</summary>
+            <label for="editor" data-i18n="json">Scenario JSON</label
+            ><textarea id="editor" rows="18" spellcheck="false"></textarea
+            ><button id="analyze" type="button" data-i18n="analyze">Analyze changes</button>
+          </details>
+        </aside>
+        <div class="results">
+          <div id="error" role="alert" hidden></div>
+          <p id="busy" class="muted" role="status" aria-live="polite" data-i18n="loading">
+            Loading experiment…
+          </p>
+          <div id="report-content" hidden>
+            <div class="report-top">
+              <span class="section-number">02 / <span data-i18n="results">RESULTS</span></span
+              ><span class="pill" id="provenance"></span>
+            </div>
+            <div class="metrics" id="metrics"></div>
+            <section class="panel visual-panel">
+              <div class="visual-heading">
+                <h2 data-i18n="visual">Explore the result</h2>
+                <span id="report-status" class="status"></span>
+              </div>
+              <div id="visual"></div>
+              <div class="cursor-control">
+                <label id="cursor-label" for="cursor" data-i18n="cursor">Review position</label
+                ><input id="cursor" type="range" min="0" value="0" step="1" /><output
+                  id="cursor-value"
+                  for="cursor"
+                ></output>
+              </div>
+            </section>
+            <section class="panel findings-panel">
+              <h2 data-i18n="findings">Findings & interpretation</h2>
+              <div id="findings"></div>
+              <p class="scope-note" id="interpretation"></p>
+            </section>
+            <section class="panel export-panel">
+              <div>
+                <h2 data-i18n="reproduce">Keep the experiment reproducible</h2>
+                <p data-i18n="reproduceBody">
+                  Export the scenario and report together. Reports retain their source label and
+                  analysis version.
+                </p>
+              </div>
+              <button id="download-report" type="button" data-i18n="saveReport">
+                Export report
+              </button>
+            </section>
+            <details class="panel records-panel">
+              <summary data-i18n="records">Inspect the analysis records</summary>
+              <p class="muted" data-i18n="recordLimit">
+                The table previews up to 200 records. The export contains the complete result.
+              </p>
+              <div id="records" class="table-scroll"></div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <p>
+          <strong>Go2 PRO Sensor Alignment</strong><br /><span data-i18n="footer"
+            >Independent software prototype. Physical integration requires separate interface
+            confirmation and validation.</span
+          >
+        </p>
+        <p>
+          <a href="mailto:gabrieldemetrioslafis@usp.br">gabrieldemetrioslafis@usp.br</a><br /><a
+            href="https://github.com/galafis/go2-pro-sensor-alignment/blob/main/LICENSE"
+            >MIT</a
+          >
+          ·
+          <a
+            href="https://github.com/galafis/go2-pro-sensor-alignment/blob/main/SECURITY.md"
+            data-i18n="privacy"
+            >Privacy & security</a
+          >
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
