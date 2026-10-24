@@ -1,11 +1,31 @@
 # Go2 PRO Sensor Alignment
 
-**Align paired planar observations and inspect held-out residuals.**  
-**Alinhe observações planas pareadas e inspecione resíduos fora do ajuste.**
+**Coordinate alignment · Alinhamento de coordenadas**
 
-[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) · **Working software prototype / Protótipo funcional** · **v0.1.1** · **29 browser tests / testes do navegador** · **MIT**
+<p align="center"><img src="assets/project-overview.svg" width="960" alt="Workflow illustration: Paired landmarks → Weighted rigid fit → Residual review"></p>
 
-[English](#english) · [Português](#portugues) · [Live demo · Demonstração](https://galafis.github.io/go2-pro-sensor-alignment/) · [Five examples · Cinco exemplos](#examples)
+[![Checks](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml)
+[English](#english) · [Português](#portugues) · [Guided tour / Visita guiada](docs/SHOWCASE.md) · [Validation / Validação](docs/VALIDATION.md)
+
+> **EN:** Does the fitted transform generalize to held-out landmarks?<br>
+> **PT:** A transformação ajustada se mantém nos marcos excluídos do ajuste?
+
+## Start here · Comece aqui
+
+| Goal · Objetivo | Where to go · Por onde começar |
+| --- | --- |
+| Understand a real example · Entender um exemplo concreto | [Walkthrough / Roteiro](docs/EXPERIMENTS.md) |
+| Reproduce and compare · Reproduzir e comparar | [Evidence tour / Visita às evidências](docs/SHOWCASE.md) |
+| Inspect the checks · Inspecionar as verificações | [Validation record / Registro de validação](docs/VALIDATION.md) · [CI](https://github.com/galafis/go2-pro-sensor-alignment/actions/workflows/ci.yml) |
+| Explore in the browser · Explorar no navegador | [Public demonstration / Demonstração pública](https://galafis.github.io/go2-pro-sensor-alignment/) |
+
+**Example result · Resultado do exemplo:** Fitted rotation / RotaÃ§Ã£o ajustada: **90 Â°**; Weighted fit RMSE / RMSE ponderado do ajuste: **0 m**; Maximum fitted residual / Maior resÃ­duo do ajuste: **0 m**
+
+**Try a comparison · Experimente uma comparação**<br>
+**EN:** Compare nominal, noise and outlier examples; inspect held-out residuals before changing weights.<br>
+**PT:** Compare nominal, ruído e valor discrepante; inspecione resíduos de exclusão antes de alterar pesos.
+
+[![Existing application preview / Prévia existente da aplicação](assets/preview-en.svg)](https://galafis.github.io/go2-pro-sensor-alignment/)
 
 ## Offline analysis · Análise offline
 
@@ -34,6 +54,7 @@ flowchart TD
   H --> I
   D -->|No / Não| J["Reject degeneracy / Rejeitar degeneração"]
 ```
+
 
 <a id="english"></a>
 
